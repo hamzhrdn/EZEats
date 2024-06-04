@@ -8,4 +8,6 @@
     <string name="saved">Saved</string>
     <string name="account">Account</string>
     <string name="trending">Trending recipes</string>
+    <string name="nama_resep">Nama Resep</string>
+    <string name="category">Category</string>
 </resources>

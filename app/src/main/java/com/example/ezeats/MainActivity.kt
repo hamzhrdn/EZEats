@@ -47,10 +47,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private  fun loadFragment(fragment: Fragment){
-        if (fragment!= null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame_layout, fragment)
-            transaction.commit()
-        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout, fragment)
+        transaction.commit()
     }
 }
