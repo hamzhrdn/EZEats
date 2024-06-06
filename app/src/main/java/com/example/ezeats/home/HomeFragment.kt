@@ -10,9 +10,6 @@ import androidx.databinding.BindingAdapter
 import com.example.ezeats.R
 
 class HomeFragment : Fragment() {
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var categoryAdapter: CategoryAdapter
