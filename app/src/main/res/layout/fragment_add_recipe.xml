@@ -9,131 +9,178 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/recipe_image"
-                android:layout_width="240dp"
-                android:layout_height="240dp"
-                android:layout_marginTop="180dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars"
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/add_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_add_24"
-                android:backgroundTint="@color/white"
-                app:tint="@color/green"
-                app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
-                app:layout_constraintEnd_toEndOf="@+id/recipe_image"
-                app:layout_constraintStart_toEndOf="@+id/recipe_image"
-                app:layout_constraintTop_toBottomOf="@+id/recipe_image"
-                app:shapeAppearance="circle"
-                tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_height="wrap_content"
+            android:background="@color/green">
 
             <TextView
-                android:id="@+id/title_recipe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/recipe_title"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_image" />
-
-            <com.example.ezeats.customui.customEditText
-                android:id="@+id/input_title"
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/rounded_input"
+                android:layout_marginTop="60dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/input_recipe_title"
-                android:minHeight="48dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_recipe" />
-
-            <TextView
-                android:id="@+id/ingredients_recipe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/ingredients"
-                android:textSize="14sp"
+                android:gravity="center"
+                android:text="@string/add_recipe"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/input_title" />
-
-            <com.example.ezeats.customui.customEditText
-                android:id="@+id/input_ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/rounded_input"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/input_ingredients"
-                android:minHeight="48dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="14sp"
-                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/steps_recipe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/steps"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/input_ingredient" />
 
-            <com.example.ezeats.customui.customEditText
-                android:id="@+id/input_steps"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/rounded_input"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/input_steps"
-                android:minHeight="48dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="14sp"
-                android:textStyle="normal"
+                android:layout_height="610dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/layout_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/steps_recipe" />
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintVertical_bias="0.0">
 
+                <ImageView
+                    android:id="@+id/recipe_image"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription,ImageContrastCheck"
+                    tools:src="@tools:sample/avatars" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/add_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
+                    app:layout_constraintEnd_toEndOf="@+id/recipe_image"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_image"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_image"
+                    app:tint="@color/green"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/title_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/recipe_title"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_image" />
+
+                <com.example.ezeats.customui.customEditText
+                    android:id="@+id/input_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/rounded_input"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/input_recipe_title"
+                    android:minHeight="48dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_recipe"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/ingredients_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/ingredients"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_title" />
+
+                <com.example.ezeats.customui.customEditText
+                    android:id="@+id/input_ingredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/rounded_input"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/input_ingredients"
+                    android:minHeight="48dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/steps_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/steps"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_ingredient" />
+
+                <com.example.ezeats.customui.customEditText
+                    android:id="@+id/input_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/rounded_input"
+                    android:fontFamily="@font/poppins"
+                    android:hint="@string/input_steps"
+                    android:minHeight="48dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/steps_recipe"
+                    tools:ignore="TextContrastCheck" />
+
+                <Button
+                    android:id="@+id/submit_recipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/submit"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:circularflow_radiusInDP="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_steps"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
-
 </FrameLayout>
