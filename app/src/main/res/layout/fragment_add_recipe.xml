@@ -58,17 +58,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                android:fontFamily="@font/poppins"
                 android:background="@drawable/rounded_input"
-                android:minHeight="40dp"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/input_recipe_title"
+                android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_recipe"
-                android:hint="@string/input_recipe_title"/>
+                app:layout_constraintTop_toBottomOf="@+id/title_recipe" />
 
             <TextView
                 android:id="@+id/ingredients_recipe"
@@ -89,17 +89,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                android:fontFamily="@font/poppins"
                 android:background="@drawable/rounded_input"
-                android:minHeight="40dp"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/input_ingredients"
+                android:minHeight="48dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:textSize="14sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe"
-                android:hint="@string/input_ingredients"/>
+                app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe" />
 
             <TextView
                 android:id="@+id/steps_recipe"
@@ -118,19 +118,19 @@
                 android:id="@+id/input_steps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_input"
-                android:minHeight="40dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
+                android:background="@drawable/rounded_input"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/input_steps"
+                android:minHeight="48dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:fontFamily="@font/poppins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/steps_recipe"
-                android:hint="@string/input_steps"/>
+                app:layout_constraintTop_toBottomOf="@+id/steps_recipe" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
