@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".addrecipe.AddRecipeFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/green">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
@@ -40,11 +41,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
                 app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
-                    android:id="@+id/recipe_image"
+                    android:id="@+id/ivRecipe_image"
                     android:layout_width="240dp"
                     android:layout_height="240dp"
                     android:layout_marginTop="40dp"
@@ -55,20 +56,20 @@
                     tools:src="@tools:sample/avatars" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add_image"
+                    android:id="@+id/btAdd_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:src="@drawable/baseline_add_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/recipe_image"
-                    app:layout_constraintEnd_toEndOf="@+id/recipe_image"
-                    app:layout_constraintStart_toEndOf="@+id/recipe_image"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivRecipe_image"
+                    app:layout_constraintEnd_toEndOf="@+id/ivRecipe_image"
+                    app:layout_constraintStart_toEndOf="@+id/ivRecipe_image"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRecipe_image"
                     app:tint="@color/green"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
                 <TextView
-                    android:id="@+id/title_recipe"
+                    android:id="@+id/tvTitle_recipe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -78,7 +79,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/add_image" />
+                    app:layout_constraintTop_toBottomOf="@+id/btAdd_image" />
 
                 <com.example.ezeats.customui.customEditText
                     android:id="@+id/input_title"
@@ -96,11 +97,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_recipe"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle_recipe"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/ingredients_recipe"
+                    android:id="@+id/tvIngredients"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -128,11 +129,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe"
+                    app:layout_constraintTop_toBottomOf="@+id/tvIngredients"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/steps_recipe"
+                    android:id="@+id/tvSteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -160,11 +161,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/steps_recipe"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSteps"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
-                    android:id="@+id/submit_recipe"
+                    android:id="@+id/btSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="20dp"
@@ -182,5 +183,5 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
