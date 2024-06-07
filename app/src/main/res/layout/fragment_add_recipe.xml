@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:src="@drawable/baseline_add_24"
+                    android:src="@drawable/add_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/ivRecipe_image"
                     app:layout_constraintEnd_toEndOf="@+id/ivRecipe_image"
                     app:layout_constraintStart_toEndOf="@+id/ivRecipe_image"
