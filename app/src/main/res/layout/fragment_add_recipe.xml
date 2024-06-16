@@ -42,7 +42,7 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
-                    android:id="@+id/ivProfile"
+                    android:id="@+id/ivRecipe"
                     android:layout_width="240dp"
                     android:layout_height="240dp"
                     android:layout_marginTop="40dp"
@@ -59,15 +59,15 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:src="@drawable/add_icon"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
-                    app:layout_constraintEnd_toEndOf="@+id/ivProfile"
-                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
-                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivRecipe"
+                    app:layout_constraintEnd_toEndOf="@+id/ivRecipe"
+                    app:layout_constraintStart_toEndOf="@+id/ivRecipe"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRecipe"
                     app:tint="@color/green"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
                 <TextView
-                    android:id="@+id/tvName"
+                    android:id="@+id/tvRecipe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -80,7 +80,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/btAdd_image" />
 
                 <com.example.ezeats.customui.customEditText
-                    android:id="@+id/editName"
+                    android:id="@+id/inputRecipeName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -95,11 +95,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRecipe"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/tvEmail"
+                    android:id="@+id/tvIngredient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -109,10 +109,10 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editName" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputRecipeName" />
 
                 <com.example.ezeats.customui.customEditText
-                    android:id="@+id/editEmail"
+                    android:id="@+id/inputIngredient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -127,11 +127,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/tvIngredient"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/tvPassword"
+                    android:id="@+id/tvSteps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -141,10 +141,10 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputIngredient" />
 
                 <com.example.ezeats.customui.customEditText
-                    android:id="@+id/input_steps"
+                    android:id="@+id/inputSteps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -159,7 +159,7 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSteps"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
@@ -177,7 +177,7 @@
                     app:circularflow_radiusInDP="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input_steps"
+                    app:layout_constraintTop_toBottomOf="@+id/inputSteps"
                     tools:ignore="TouchTargetSizeCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,12 +45,12 @@ class AddRecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ivRecipeImage.setImageResource(R.mipmap.base_food_image_foreground)
+        binding.ivRecipe.setImageResource(R.mipmap.base_food_image_foreground)
         binding.btAddImage.setOnClickListener{
             view -> showPopUpMenu(view)
         }
         binding.btSubmit.setOnClickListener{
-            val title = binding.inputTitle.text.toString()
+            val title = binding.inputRecipeName.text.toString()
             val ingredients = binding.inputIngredient.text.toString()
             val steps = binding.inputSteps.text.toString()
 
@@ -89,7 +89,7 @@ class AddRecipeFragment : Fragment() {
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 currentImageUri = result.data?.data as Uri
                 if (currentImageUri != null) {
-                    binding.ivRecipeImage.setImageURI(currentImageUri)
+                    binding.ivRecipe.setImageURI(currentImageUri)
                 } else {
                     Toast.makeText(requireContext(), "No Image Selected", Toast.LENGTH_SHORT).show()
                 }
@@ -101,7 +101,7 @@ class AddRecipeFragment : Fragment() {
     private val launcherIntentCamera =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
             if (isSuccess) {
-                binding.ivRecipeImage.setImageURI(currentImageUri)
+                binding.ivRecipe.setImageURI(currentImageUri)
             } else {
                 Toast.makeText(requireContext(), "No Image Selected", Toast.LENGTH_SHORT).show()
             }
