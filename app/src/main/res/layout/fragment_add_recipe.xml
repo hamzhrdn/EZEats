@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".addrecipe.AddRecipeFragment">
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    tools:context=".addrecipe.AddRecipeFragment"
+    >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/green">
 
             <TextView
@@ -45,10 +42,11 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
-                    android:id="@+id/ivRecipe_image"
+                    android:id="@+id/ivProfile"
                     android:layout_width="240dp"
                     android:layout_height="240dp"
                     android:layout_marginTop="40dp"
+                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -61,15 +59,15 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:src="@drawable/add_icon"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivRecipe_image"
-                    app:layout_constraintEnd_toEndOf="@+id/ivRecipe_image"
-                    app:layout_constraintStart_toEndOf="@+id/ivRecipe_image"
-                    app:layout_constraintTop_toBottomOf="@+id/ivRecipe_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
+                    app:layout_constraintEnd_toEndOf="@+id/ivProfile"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
                     app:tint="@color/green"
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
                 <TextView
-                    android:id="@+id/tvTitle_recipe"
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -82,7 +80,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/btAdd_image" />
 
                 <com.example.ezeats.customui.customEditText
-                    android:id="@+id/input_title"
+                    android:id="@+id/editName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -97,11 +95,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTitle_recipe"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/tvIngredients"
+                    android:id="@+id/tvEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -111,10 +109,10 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/editName" />
 
                 <com.example.ezeats.customui.customEditText
-                    android:id="@+id/input_ingredient"
+                    android:id="@+id/editEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -129,11 +127,11 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvIngredients"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmail"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/tvSteps"
+                    android:id="@+id/tvPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -143,7 +141,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/input_ingredient" />
+                    app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
                 <com.example.ezeats.customui.customEditText
                     android:id="@+id/input_steps"
@@ -161,7 +159,7 @@
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSteps"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPassword"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
@@ -183,5 +181,4 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>

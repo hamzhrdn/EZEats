@@ -10,9 +10,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNav : BottomNavigationView
-    lateinit var homeFragment: HomeFragment
-    lateinit var addRecipeFragment: AddRecipeFragment
+    private lateinit var bottomNav : BottomNavigationView
+    private lateinit var homeFragment: HomeFragment
+    private lateinit var addRecipeFragment: AddRecipeFragment
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private  fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame_layout, fragment)
         transaction.commit()

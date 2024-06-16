@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ezeats.R
 
 class CategoryAdapter() : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
-    val categories  = arrayOf("Meat", "Lamb", "Chicken")
+    private val categories  = arrayOf("Meat", "Lamb", "Chicken")
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryButton: View = itemView.findViewById(R.id.btCategory)
     }

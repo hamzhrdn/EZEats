@@ -1,7 +1,8 @@
 package com.example.ezeats.home
 
 import androidx.lifecycle.ViewModel
+import com.example.ezeats.database.Repository
 
-class HomeViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class HomeViewModel(repository: Repository) : ViewModel() {
+
 }
