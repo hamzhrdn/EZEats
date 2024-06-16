@@ -27,4 +27,6 @@
     <string name="edit_your_name">Edit name</string>
     <string name="email">Email</string>
     <string name="edit_email">Edit Email</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

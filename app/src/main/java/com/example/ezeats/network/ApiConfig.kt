@@ -2,7 +2,6 @@ package com.example.ezeats.network
 
 import android.content.Context
 import com.example.ezeats.utils.Preferences
-import com.loopj.android.http.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
