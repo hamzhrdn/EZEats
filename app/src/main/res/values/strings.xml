@@ -8,7 +8,8 @@
     <string name="saved">Saved</string>
     <string name="account">Account</string>
     <string name="trending">Trending recipes</string>
-    <string name="nama_resep">Nama Resep</string>
+    <string name="name_recipe">Nama Resep</string>
+    <string name="desc_recipe">Deskripsi atau ingredients singkat recipe di sini</string>
     <string name="category">Category</string>
     <string name="recipe_title">Recipe Title</string>
     <string name="input_recipe_title">Enter your recipe title</string>
@@ -16,6 +17,14 @@
     <string name="input_steps">Enter your recipe procedure</string>
     <string name="ingredients">Ingredients</string>
     <string name="steps">Steps</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_recipes">My Recipes</string>
+    <string name="user_name">User Name</string>
+    <string name="searchbar_hint">Search</string>
+    <string name="sort_by">Sort by</string>
+
     <string name="submit">Submit</string>
     <string name="add_recipe">Add New Recipe</string>
     <string name="recipe">Recipe</string>
@@ -31,4 +40,5 @@
     <string name="gallery">Gallery</string>
     <string name="edit_password">Edit Password</string>
     <string name="app_theme">App Theme</string>
+
 </resources>
