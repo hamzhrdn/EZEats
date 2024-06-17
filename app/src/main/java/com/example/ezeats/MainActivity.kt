@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.ezeats.addrecipe.AddRecipeFragment
 import com.example.ezeats.home.HomeFragment
+import com.example.ezeats.profile.ProfileFragment
+import com.example.ezeats.searchRecipe.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.search -> {
-                    //loadFragment()
+                    loadFragment(SearchFragment())
                     true
                 }
                 R.id.add -> {
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.account -> {
-                    //loadFragment()
+                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> {false}
