@@ -1,8 +1,8 @@
 package com.example.ezeats
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.ezeats.addrecipe.AddRecipeFragment
 import com.example.ezeats.home.HomeFragment
@@ -28,8 +28,20 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(HomeFragment())
                     true
                 }
+                R.id.search -> {
+                    //loadFragment()
+                    true
+                }
                 R.id.add -> {
                     loadFragment(AddRecipeFragment())
+                    true
+                }
+                R.id.saved -> {
+                    //loadFragment()
+                    true
+                }
+                R.id.account -> {
+                    //loadFragment()
                     true
                 }
                 else -> {false}

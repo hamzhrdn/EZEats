@@ -31,7 +31,7 @@ class ApiConfig {
             val token = sharedPref.getString("token", null).toString()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://story-api.dicoding.dev/v1/")
+                .baseUrl("")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getInterceptor(token))
                 .build()

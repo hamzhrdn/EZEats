@@ -43,7 +43,7 @@ class AddRecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ivRecipe.setImageResource(R.mipmap.base_food_image_foreground)
+        binding.ivRecipe.setImageResource(R.mipmap.base_food_image)
         binding.btAddImage.setOnClickListener{
             view -> showPopUpMenu(view)
         }
