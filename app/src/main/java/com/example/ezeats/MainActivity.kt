@@ -1,8 +1,8 @@
 package com.example.ezeats
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.ezeats.addrecipe.AddRecipeFragment
 import com.example.ezeats.home.HomeFragment
@@ -10,9 +10,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNav : BottomNavigationView
-    lateinit var homeFragment: HomeFragment
-    lateinit var addRecipeFragment: AddRecipeFragment
+    private lateinit var bottomNav : BottomNavigationView
+    private lateinit var homeFragment: HomeFragment
+    private lateinit var addRecipeFragment: AddRecipeFragment
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +28,20 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(HomeFragment())
                     true
                 }
+                R.id.search -> {
+                    //loadFragment()
+                    true
+                }
                 R.id.add -> {
                     loadFragment(AddRecipeFragment())
+                    true
+                }
+                R.id.saved -> {
+                    //loadFragment()
+                    true
+                }
+                R.id.account -> {
+                    //loadFragment()
                     true
                 }
                 else -> {false}
@@ -46,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private  fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame_layout, fragment)
         transaction.commit()

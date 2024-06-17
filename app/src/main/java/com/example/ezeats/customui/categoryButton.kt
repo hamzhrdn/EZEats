@@ -30,5 +30,4 @@ class categoryButton : AppCompatButton {
         textSize = 12f
         gravity = Gravity.CENTER
     }
-
 }
