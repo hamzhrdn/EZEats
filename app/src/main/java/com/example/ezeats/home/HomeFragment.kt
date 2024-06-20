@@ -89,8 +89,6 @@ class HomeFragment : Fragment() {
         )
     }
 
-    override fun onConn
-
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d("HomeFragment", "Destroying HomeFragment view")
