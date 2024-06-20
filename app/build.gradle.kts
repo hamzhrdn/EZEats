@@ -66,6 +66,7 @@ dependencies {
 
     implementation("androidx.paging:paging-common-android:3.3.0")
     implementation("androidx.paging:paging-runtime-ktx:3.3.0")
+    implementation("androidx.activity:activity:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout-core:1.0.4")
 
     testImplementation("junit:junit:4.13.2")

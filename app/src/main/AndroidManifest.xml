@@ -14,6 +14,22 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
         <activity
+            android:name=".accountmanager.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountmanager.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountmanager.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accountmanagement.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false" />
+        <activity
+
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
