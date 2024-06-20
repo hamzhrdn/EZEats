@@ -3,6 +3,7 @@ package com.example.ezeats
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.activity.viewModels
@@ -10,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.ezeats.addrecipe.AddRecipeFragment
 import com.example.ezeats.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,10 +21,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
+    private lateinit var navController: NavController
     private lateinit var bottomNav : BottomNavigationView
     private lateinit var homeFragment: HomeFragment
     private lateinit var addRecipeFragment: AddRecipeFragment
     @SuppressLint("CutPasteId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
@@ -55,49 +61,58 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        bottomNav = findViewById(R.id.bottomNavigationView)
-        homeFragment = HomeFragment()
-        addRecipeFragment = AddRecipeFragment()
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
+        navController = navHostFragment.navController
 
+        bottomNav = findViewById(R.id.bottomNavigationView)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    loadFragment(HomeFragment())
+                    Log.d("Item", "home")
+                    navController.navigate(R.id.homeFragment)
+//                    loadFragment(HomeFragment())
                     true
                 }
                 R.id.search -> {
-                    //loadFragment()
+                    Log.d("Item", "search")
+                    navController.navigate(R.id.searchFragment)
+//                    loadFragment(SearchFragment())
                     true
                 }
                 R.id.add -> {
-                    loadFragment(AddRecipeFragment())
+                    Log.d("Item", "add recipe")
+                    navController.navigate(R.id.addRecipeFragment)
+//                    loadFragment(AddRecipeFragment())
                     true
                 }
                 R.id.saved -> {
-                    //loadFragment()
+                    //navController.navigate(R.id.saved)
                     true
                 }
                 R.id.account -> {
-                    //loadFragment()
+                    Log.d("Item", "profile")
+                    navController.navigate(R.id.profileFragment)
+//                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> {false}
             }
         }
 
-        loadFragment(homeFragment)
-
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-
-        for (i in 0 until bottomNavigationView.menu.size()) {
-            val menuItem = bottomNavigationView.menu.getItem(i)
+        for (i in 0 until bottomNav.menu.size()) {
+            val menuItem = bottomNav.menu.getItem(i)
             menuItem.title = ""
+        }
+
+        if (savedInstanceState == null) {
+            navController.navigate(R.id.homeFragment)
         }
     }
 
     private fun loadFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_layout, fragment)
-        transaction.commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit();
     }
 }

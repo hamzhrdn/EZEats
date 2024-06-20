@@ -2,29 +2,29 @@ package com.example.ezeats.network
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.ezeats.response.RecipeItem
+import com.example.ezeats.response.CategoryFilterItem
 
-class RecipePaging(private val apiService: ApiService): PagingSource<Int, RecipeItem>(){
+class RecipePaging(private val apiService: ApiService): PagingSource<Int, CategoryFilterItem>(){
     private companion object {
         const val INITIAL_PAGE_INDEX = 1
     }
 
-    override fun getRefreshKey(state: PagingState<Int, RecipeItem>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, CategoryFilterItem>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, RecipeItem> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CategoryFilterItem> {
         return try {
             val page = params.key ?: INITIAL_PAGE_INDEX
-            val responseData = apiService.getRecipe(page, params.loadSize)
+            val responseData = apiService.getRecipeList(page, params.loadSize)
 
             LoadResult.Page(
-                data = responseData.listRecipe?: emptyList(),
+                data = responseData.categoryFilter?: emptyList(),
                 prevKey = if (page == 1) null else page - 1,
-                nextKey = if (responseData.listRecipe.isEmpty()) null else page + 1
+                nextKey = if (responseData.categoryFilter.isEmpty()) null else page + 1
             )
         } catch (exception: Exception) {
             return LoadResult.Error(exception)

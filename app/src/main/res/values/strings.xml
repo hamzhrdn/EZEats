@@ -58,5 +58,16 @@
     <string name="forgot_password_msg1">Let\'s reset your password!</string>
     <string name="forgot_password_msg2">Enter your account\'s email</string>
     <string name="forgot_password_msg3">We will send you a verification email, \nplease check your email inbox.</string>
+    <string name="gambar_resep">Gambar Resep</string>
+    <string name="chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="egg">Egg</string>
+    <string name="tofu">Tofu</string>
+    <string name="fish">Fish</string>
+    <string name="tempe">Tempe</string>
+    <string name="lamb">Lamb</string>
+    <string name="num_step">Steps n</string>
+    <string name="langkah_memasak">langkah memasak</string>
+    <string name="all">All</string>
 
 </resources>

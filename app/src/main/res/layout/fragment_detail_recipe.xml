@@ -66,8 +66,8 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:text="@string/nama_resep"
-                android:textSize="14sp"
+                android:text="@string/recipe_title"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvLikes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -99,7 +99,7 @@
                 android:background="@color/white"
                 style="@style/CustomTabLayout"
                 app:tabTextColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/tvLikes" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
