@@ -1,4 +1,4 @@
-package com.example.ezeats.detailrecipe
+package com.example.ezeats.home
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ezeats.R
 import com.example.ezeats.databinding.HomeListBinding
-import com.example.ezeats.response.CategoryFilterItem
+import com.example.ezeats.response.TrendingItem
 import com.squareup.picasso.Picasso
 
-class RecipeAdapter (private val callback: (recipe: CategoryFilterItem, imageView: View, nameView: View) -> Unit) : PagingDataAdapter<CategoryFilterItem, RecipeViewHolder>(
+class TrendingAdapter (private val callback: (recipe: TrendingItem, imageView: View, nameView: View) -> Unit) : PagingDataAdapter<TrendingItem, TrendingViewHolder>(
     DIFF_CALLBACK
 ){
 
-    override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TrendingViewHolder, position: Int) {
         val item = getItem(position)
-        Log.d("RecipeAdapter", "onBindViewHolder called for position $position")
+        Log.d("TrendingAdapter", "onBindViewHolder called for position $position")
 
         holder.view.root.setOnClickListener{
             item?.let {
@@ -31,31 +31,36 @@ class RecipeAdapter (private val callback: (recipe: CategoryFilterItem, imageVie
         }
 
         item?.let {
-            holder.bind(item)
+            holder.bindTrending(item)
         }
+
         Log.d("Recipe Adapter", "Data Logged")
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingViewHolder {
         val view = HomeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RecipeViewHolder(view)
+        return TrendingViewHolder(view)
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CategoryFilterItem>() {
-            override fun areItemsTheSame(oldItem: CategoryFilterItem, newItem: CategoryFilterItem): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TrendingItem>() {
+            override fun areItemsTheSame(oldItem: TrendingItem, newItem: TrendingItem): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: CategoryFilterItem, newItem: CategoryFilterItem): Boolean {
+            override fun areContentsTheSame(oldItem: TrendingItem, newItem: TrendingItem): Boolean {
                 return oldItem.id == newItem.id
             }
         }
     }
+
+    override fun getItemCount(): Int {
+        return super.getItemCount()
+    }
 }
 
-class RecipeViewHolder(val view: HomeListBinding) : RecyclerView.ViewHolder(view.root) {
-    fun bind(item: CategoryFilterItem) {
+class TrendingViewHolder(val view: HomeListBinding) : RecyclerView.ViewHolder(view.root) {
+    fun bindTrending(item: TrendingItem) {
         view.nameRecipe.text = item.title.toString()
 
         if (item.images.isNullOrEmpty() || item.images == "") {

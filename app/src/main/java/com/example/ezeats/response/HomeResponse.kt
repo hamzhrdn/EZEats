@@ -9,25 +9,25 @@ data class HomeResponse(
 
 data class CategoryFilterItem(
 	val images: String? = null,
-	val createdby: String? = null,
-	val isSaved: Boolean? = null,
-	val ingredients: String? = null,
-	val id: String? = null,
-	val category: String? = null,
-	val title: String? = null,
-	val steps: String? = null,
-	val likes: Int? = null
+	val createdby: String,
+	val isSaved: Boolean,
+	val ingredients: String,
+	val id: String,
+	val category: String,
+	val title: String,
+	val steps: String,
+	val likes: Int
 )
 
 data class TrendingItem(
 	val images: String? = null,
-	val createdby: String? = null,
-	val isSaved: Boolean? = null,
-	val ingredients: String? = null,
-	val id: String? = null,
-	val category: String? = null,
-	val title: String? = null,
-	val steps: String? = null,
-	val likes: Int? = null
+	val createdby: String,
+	val isSaved: Boolean,
+	val ingredients: String,
+	val id: String,
+	val category: String,
+	val title: String,
+	val steps: String,
+	val likes: Int
 )
 

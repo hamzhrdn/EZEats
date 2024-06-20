@@ -22,21 +22,6 @@
         <argument
             android:name="id"
             app:argType="string"/>
-        <argument
-            android:name="title"
-            app:argType="string"/>
-        <argument
-            android:name="ingredients"
-            app:argType="string"/>
-        <argument
-            android:name="steps"
-            app:argType="string"/>
-        <argument
-            android:name="images"
-            app:argType="string"/>
-<!--        <argument-->
-<!--            android:name="likes"-->
-<!--            app:argType="int"/>-->
 
     </fragment>
     <fragment

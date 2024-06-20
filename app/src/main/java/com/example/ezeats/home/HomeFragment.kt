@@ -8,12 +8,9 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ezeats.databinding.FragmentHomeBinding
-import com.example.ezeats.detailrecipe.RecipeAdapter
 import com.example.ezeats.utils.ViewModelFactory
 
 class HomeFragment : Fragment() {
@@ -21,6 +18,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recipeAdapter: RecipeAdapter
+    private lateinit var trendingAdapter: TrendingAdapter
 
     private val homeViewModel: HomeViewModel by viewModels {
         ViewModelFactory(requireActivity())
@@ -35,33 +33,26 @@ class HomeFragment : Fragment() {
 
         recipeAdapter = RecipeAdapter{ recipe, imageView, nameView ->
             val id = recipe.id
-            val title = recipe.title
-            val ingredients = recipe.ingredients
-            val steps = recipe.steps
-            val images = recipe.images
-            val likes = recipe.likes
 
-            val extras = FragmentNavigatorExtras(
-                imageView to imageView.transitionName,
-                nameView to nameView.transitionName
-            )
-
-            val action = HomeFragmentDirections.actionHomeFragmentToDetailRecipeFragment(
-                id!!, title!!, ingredients!!, steps!!, images!!
-            )
-
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailRecipeFragment(id)
             findNavController().navigate(action)
         }
 
-        val recyclerRecipe : RecyclerView = binding.rvRecipe
+        trendingAdapter = TrendingAdapter{recipe, imageView, nameView ->
+            val id = recipe.id
 
-        recyclerRecipe.layoutManager = GridLayoutManager(context, 2)
-        recyclerRecipe.setHasFixedSize(true)
-        binding.rvRecipe.adapter = recipeAdapter
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailRecipeFragment(id)
+            findNavController().navigate(action)
+        }
 
-//        val recyclerTrending = binding.rvTrending
-//        recyclerTrending.layoutManager = LinearLayoutManager(context)
-//        binding.rvTrending.adapter = recipeAdapter
+
+//        val recyclerView = binding.rvRecipe
+//        recyclerView.layoutManager = GridLayoutManager(context, 2)
+//        binding.rvRecipe.adapter = recipeAdapter
+
+        val recyclerTrending = binding.rvTrending
+        recyclerTrending.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvTrending.adapter = trendingAdapter
 
         return binding.root
     }
@@ -74,6 +65,17 @@ class HomeFragment : Fragment() {
             if(data!=null){
                 Log.d("HomeFragment", "Data is not null, submitting to adapter")
                 recipeAdapter.submitData(viewLifecycleOwner.lifecycle, data)
+                Log.d("HomeFragment", "Data loaded: $data items")
+            }else{
+                Log.d("HomeFragment", "No data loaded")
+            }
+        }
+
+        homeViewModel.trending.observe(viewLifecycleOwner){ data ->
+            Log.d("HomeFragment", "Received data: $data")
+            if(data!=null){
+                Log.d("HomeFragment", "Data is not null, submitting to adapter")
+                trendingAdapter.submitData(viewLifecycleOwner.lifecycle, data)
                 Log.d("HomeFragment", "Data loaded: $data items")
             }else{
                 Log.d("HomeFragment", "No data loaded")
