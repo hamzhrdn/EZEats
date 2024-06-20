@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
-    id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -66,6 +66,7 @@ dependencies {
 
     implementation("androidx.paging:paging-common-android:3.3.0")
     implementation("androidx.paging:paging-runtime-ktx:3.3.0")
+    implementation("androidx.constraintlayout:constraintlayout-core:1.0.4")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -98,4 +99,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
     // Splash Screen Animation
     implementation("androidx.core:core-splashscreen:1.0.1")
+    //Image
+    implementation("com.squareup.picasso:picasso:2.71828")
 }

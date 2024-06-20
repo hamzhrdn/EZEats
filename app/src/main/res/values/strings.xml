@@ -40,5 +40,15 @@
     <string name="edit_password">Edit Password</string>
     <string name="app_theme">App Theme</string>
     <string name="gambar_resep">Gambar Resep</string>
+    <string name="chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="egg">Egg</string>
+    <string name="tofu">Tofu</string>
+    <string name="fish">Fish</string>
+    <string name="tempe">Tempe</string>
+    <string name="lamb">Lamb</string>
+    <string name="num_step">Steps n</string>
+    <string name="langkah_memasak">langkah memasak</string>
+    <string name="all">All</string>
 
 </resources>

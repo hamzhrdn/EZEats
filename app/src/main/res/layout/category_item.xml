@@ -7,18 +7,19 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_margin="5dp"
         android:orientation="horizontal"
         android:background="@drawable/buttoncategory"
-        android:padding="8dp"
+        android:padding="3dp"
         tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:fontFamily="@font/poppins"
             android:text="@string/category"
             android:textSize="12sp"
