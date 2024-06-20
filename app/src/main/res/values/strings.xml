@@ -20,7 +20,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="user_recipes">My Recipes</string>
+    <string name="user_recipes">My Recipe</string>
     <string name="user_name">User Name</string>
     <string name="searchbar_hint">Search</string>
     <string name="sort_by">Sort by</string>
@@ -34,11 +34,30 @@
     <string name="name">Name</string>
     <string name="edit_your_name">Edit name</string>
     <string name="email">Email</string>
-    <string name="edit_email">Edit Email</string>
+    <string name="enter_email">Enter Email</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
-    <string name="edit_password">Edit Password</string>
+    <string name="enter_password">Enter Password</string>
     <string name="app_theme">App Theme</string>
+    <string name="profile">Profile</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_password_question">Forgot Password?</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="signup_msg2">Let\'s set up your account, \nit wont take long!</string>
+    <string name="signup_msg1">Create an Account</string>
+    <string name="signin_msg1">Hello,</string>
+    <string name="signin_msg2">Welcome to EZEats!</string>
+    <string name="signin_msg3">— Or —</string>
+    <string name="signin_google">Sign In With Google</string>
+    <string name="signin_no_account">Don\'t have an account?</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_msg3">Already have an account?</string>
+    <string name="forgot_password_msg1">Let\'s reset your password!</string>
+    <string name="forgot_password_msg2">Enter your account\'s email</string>
+    <string name="forgot_password_msg3">We will send you a verification email, \nplease check your email inbox.</string>
     <string name="gambar_resep">Gambar Resep</string>
     <string name="chicken">Chicken</string>
     <string name="beef">Beef</string>
