@@ -16,11 +16,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ezeats.R
 import com.example.ezeats.databinding.FragmentAddRecipeBinding
-import com.example.ezeats.utils.Result.Success
+import com.example.ezeats.utils.Result
 import com.example.ezeats.utils.ViewModelFactory
 import com.example.ezeats.utils.getImageUri
 import com.example.ezeats.utils.uriToFile
-import com.example.ezeats.utils.Result
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -126,7 +125,7 @@ class AddRecipeFragment : Fragment() {
                 .addPart(MultipartBody.Part.createFormData("ingredients", null, ingredientsBody))
                 .addPart(MultipartBody.Part.createFormData("steps", null, stepsBody))
                 .addPart(MultipartBody.Part.createFormData("category", null, categoryBody))
-                .addPart(MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile))
+                .addPart(MultipartBody.Part.createFormData("image", imageFile.name, requestImageFile))
                 .build()
 
             addRecipeViewModel.addRecipe(requestBody).observe(viewLifecycleOwner){

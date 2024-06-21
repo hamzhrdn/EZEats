@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.ezeats.addrecipe.AddRecipeViewModel
 import com.example.ezeats.detailrecipe.DetailRecipeViewModel
 import com.example.ezeats.home.HomeViewModel
+import com.example.ezeats.searchRecipe.SearchViewModel
 
 class ViewModelFactory(private val context: Context): ViewModelProvider.Factory {
     override fun <T: ViewModel> create(modelClass: Class<T>): T{
@@ -20,6 +21,9 @@ class ViewModelFactory(private val context: Context): ViewModelProvider.Factory 
             }
             modelClass.isAssignableFrom(DetailRecipeViewModel::class.java)->{
                 DetailRecipeViewModel(Injection.provideRepository(context)) as T
+            }
+            modelClass.isAssignableFrom(SearchViewModel::class.java)->{
+                SearchViewModel(Injection.provideRepository(context)) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel Class")
         }
