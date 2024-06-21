@@ -51,6 +51,11 @@ android {
         }
     }
 }
+configurations {
+    all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
+}
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
@@ -110,10 +115,4 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     //Image
     implementation("com.squareup.picasso:picasso:2.71828")
-}
-
-configurations.all {
-    resolutionStrategy {
-        force("org.jetbrains:annotations:23.0.0")
-    }
 }
