@@ -16,9 +16,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ezeats.R
 import com.example.ezeats.databinding.FragmentAddRecipeBinding
+import com.example.ezeats.utils.Result.Success
 import com.example.ezeats.utils.ViewModelFactory
 import com.example.ezeats.utils.getImageUri
 import com.example.ezeats.utils.uriToFile
+import com.example.ezeats.utils.Result
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -130,18 +132,18 @@ class AddRecipeFragment : Fragment() {
             addRecipeViewModel.addRecipe(requestBody).observe(viewLifecycleOwner){
                 if (it != null) {
                     when (it) {
-                        is com.example.ezeats.utils.Result.Success -> {
+                        is Result.Success -> {
                             Toast.makeText(context, it.data.message, Toast.LENGTH_LONG).show()
 //                            showLoading(true)
                             val action = AddRecipeFragmentDirections.actionAddRecipeFragmentToHomeFragment()
                             findNavController().navigate(action)
                         }
 
-                        is com.example.ezeats.utils.Result.Loading -> {
+                        is Result.Loading -> {
 //                            showLoading(true)
                         }
 
-                        is com.example.ezeats.utils.Result.Error -> {
+                        is Result.Error -> {
 //                            showLoading(true)
                             Toast.makeText(context, it.error, Toast.LENGTH_LONG).show()
                             Log.d("Add recipe", requestBody.toString())
