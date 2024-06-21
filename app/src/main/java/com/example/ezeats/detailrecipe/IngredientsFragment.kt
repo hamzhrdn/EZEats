@@ -1,15 +1,15 @@
 package com.example.ezeats.detailrecipe
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ezeats.R
 import com.example.ezeats.databinding.FragmentIngredientsBinding
 import com.example.ezeats.utils.ViewModelFactory
 
@@ -26,28 +26,31 @@ class IngredientsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentIngredientsBinding.inflate(inflater, container, false)
 
-        val recyclerView = binding.rvIngredient
+        recyclerView = binding.rvIngredient
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val bundle = arguments
+        Log.d("DestinationFragment", "Bundle received: $bundle")
         val ingredients = bundle?.getString("ingredients")
-        val ingredientsList = ingredients?.split("\n")
-        val ingredientsAdapter = ingredientsList?.let { IngredientsAdapter(it) }
+        val ingredientsList = ingredients?.split("\n ")
+        ingredientsAdapter = ingredientsList?.let { IngredientsAdapter(it) }?: IngredientsAdapter(emptyList())
 
         recyclerView.adapter = ingredientsAdapter
+        Log.d("Ingredients Fragment", "$ingredients data")
 
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         detailViewModel.ingredients.observe(viewLifecycleOwner) { ingredients ->
-            val textView = view.findViewById<TextView>(R.id.tvIngredient)
-            textView.text = ingredients
+            ingredientsAdapter.ingredients = ingredients.split("\n ")
+            ingredientsAdapter.notifyDataSetChanged()
         }
     }
 }

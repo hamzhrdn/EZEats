@@ -114,6 +114,7 @@ class AddRecipeFragment : Fragment() {
             val ingredientsBody = ingredients.toRequestBody("text/plain".toMediaType())
             val stepsBody = steps.toRequestBody("text/plain".toMediaType())
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+
             val multipartBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("title", null, titleBody)

@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ezeats.R
 
-class IngredientsAdapter(private val ingredients: List<String>) : RecyclerView.Adapter<IngredientsViewHolder>()  {
+class IngredientsAdapter(internal var ingredients: List<String>) : RecyclerView.Adapter<IngredientsViewHolder>()  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.ingredients_list, parent, false)
         return IngredientsViewHolder(view)

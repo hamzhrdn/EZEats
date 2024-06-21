@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ezeats.R
 
-class StepsAdapter(private val steps: List<String>) : RecyclerView.Adapter<StepsViewHolder>() {
+class StepsAdapter(internal var steps: List<String>) : RecyclerView.Adapter<StepsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.steps_list, parent, false)
         return StepsViewHolder(view)

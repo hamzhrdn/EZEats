@@ -94,20 +94,20 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
+                style="@style/CustomTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                style="@style/CustomTabLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tvLikes"
                 app:tabTextColor="@color/green"
-                app:layout_constraintTop_toBottomOf="@+id/tvLikes" />
+                app:tabSelectedTextColor="@color/green"/>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

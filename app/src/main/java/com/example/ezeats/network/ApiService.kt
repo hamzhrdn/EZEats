@@ -1,10 +1,14 @@
 package com.example.ezeats.network
 
+import com.example.ezeats.response.AddRecipeResponse
 import com.example.ezeats.response.DetailRecipeResponse
 import com.example.ezeats.response.HomeResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -22,7 +26,10 @@ interface ApiService {
     ): HomeResponse
 
     @POST("add-recipe")
-    suspend fun addRecipe()
+    suspend fun addRecipe(
+        @Part file: MultipartBody.Part,
+        @Part("description") description: RequestBody
+    ): AddRecipeResponse
 
     @GET("recipe/{id}")
     suspend fun detailRecipe(@Path("id") id: String): Response<DetailRecipeResponse>

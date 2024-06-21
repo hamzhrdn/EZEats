@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.ezeats.databinding.FragmentDetailRecipeBinding
 import com.example.ezeats.utils.ViewModelFactory
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
@@ -33,11 +32,10 @@ class DetailRecipeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailRecipeBinding.inflate(inflater, container, false)
-
-        val tabLayout: TabLayout = binding.tabLayout
-
         val id = args.id
+        val bundle = Bundle()
         Log.d("Detail Recipe Fragment", "Load recipe id $id")
+
         lifecycleScope.launch {
             try {
                 val recipe = detailViewModel.getDetailRecipe(id)
@@ -45,6 +43,38 @@ class DetailRecipeFragment : Fragment() {
                     binding.tvName.text = recipe.title
                     binding.tvLikes.text = "${recipe.likes} Likes"
                     Picasso.get().load(recipe.images).into(binding.ivProfile)
+
+                    bundle.putString("ingredients", recipe.ingredients)
+                    bundle.putString("steps", recipe.steps)
+                    Log.d("SourceFragment", "Setting bundle: $bundle")
+
+                    Log.d("Detail Recipe Fragment", bundle.getString("ingredients")!!)
+
+                    val ingredientsFragment = IngredientsFragment()
+                    val stepsFragment = StepsFragment()
+
+                    ingredientsFragment.arguments = bundle
+                    stepsFragment.arguments = bundle
+
+                    val fragments = mutableListOf<Fragment>(
+                        IngredientsFragment(),
+                        StepsFragment()
+                    )
+
+                    val titleFragment = mutableListOf(
+                        "Ingredients",
+                        "Steps"
+                    )
+
+                    val pagerAdapter = SectionPagerAdapter(requireActivity())
+                    fragments.forEach { pagerAdapter.addFragment(it, bundle) }
+                    binding.viewPager2.adapter = pagerAdapter
+                    binding.viewPager2.adapter
+
+                    TabLayoutMediator(binding.tabLayout, binding.viewPager2){
+                            tab, position -> tab.text = titleFragment[position]
+                    }.attach()
+
                     Log.d("DetailRecipeFragment", "Load Recipe")
                 } else {
                     Log.d("DetailRecipeFragment", "Data null")
@@ -53,23 +83,6 @@ class DetailRecipeFragment : Fragment() {
                 // handle error
             }
         }
-        val fragments = mutableListOf<Fragment>(
-            IngredientsFragment(),
-            StepsFragment()
-        )
-
-        val titleFragment = mutableListOf(
-            "Ingredients",
-            "Steps"
-        )
-
-        val pagerAdapter = SectionPagerAdapter(requireActivity())
-        fragments.forEach { pagerAdapter.addFragment(it) }
-        binding.viewPager2.adapter = pagerAdapter
-
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2){
-            tab, position -> tab.text = titleFragment[position]
-        }.attach()
 
         return binding.root
     }
