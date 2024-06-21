@@ -48,7 +48,7 @@ class LoginFragment : Fragment() {
             val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.windowToken, 0)
 
-            viewModel.login(email, password).observe(requireActivity()){result->
+            viewModel.login(email, password).observe(requireActivity()){ result->
                 if(result!=null){
                     when(result){
                         is Result.Loading->{
