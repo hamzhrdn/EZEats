@@ -2,8 +2,10 @@ package com.example.ezeats.network
 
 import com.example.ezeats.response.DetailRecipeResponse
 import com.example.ezeats.response.HomeResponse
+import com.example.ezeats.response.LikedResponse
 import com.example.ezeats.response.SearchResponse
 import retrofit2.Response
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -34,4 +36,7 @@ interface ApiService {
 
     @GET("recipe/{id}")
     suspend fun detailRecipe(@Path("id") id: String): Response<DetailRecipeResponse>
+
+    @GET("saved-recipes")
+    suspend fun savedRecipes(): LikedResponse
 }
