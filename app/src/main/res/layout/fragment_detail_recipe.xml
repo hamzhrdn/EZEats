@@ -98,11 +98,11 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 style="@style/CustomTabLayout"
-                app:tabTextColor="@color/white"
+                app:tabTextColor="@color/green"
                 app:layout_constraintTop_toBottomOf="@+id/tvLikes" />
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPager"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

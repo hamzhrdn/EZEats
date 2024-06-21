@@ -8,7 +8,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ezeats.R
-import com.example.ezeats.databinding.HomeListBinding
+import com.example.ezeats.databinding.TrendingListBinding
 import com.example.ezeats.response.TrendingItem
 import com.squareup.picasso.Picasso
 
@@ -38,7 +38,7 @@ class TrendingAdapter (private val callback: (recipe: TrendingItem, imageView: V
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingViewHolder {
-        val view = HomeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = TrendingListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TrendingViewHolder(view)
     }
 
@@ -59,7 +59,7 @@ class TrendingAdapter (private val callback: (recipe: TrendingItem, imageView: V
     }
 }
 
-class TrendingViewHolder(val view: HomeListBinding) : RecyclerView.ViewHolder(view.root) {
+class TrendingViewHolder(val view: TrendingListBinding) : RecyclerView.ViewHolder(view.root) {
     fun bindTrending(item: TrendingItem) {
         view.nameRecipe.text = item.title.toString()
 
