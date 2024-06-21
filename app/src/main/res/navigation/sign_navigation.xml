@@ -55,4 +55,46 @@
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.ezeats.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.ezeats.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/likedRecipeFragment"
+        android:name="com.example.ezeats.likedrecipe.LikedRecipeFragment"
+        android:label="fragment_liked_recipe"
+        tools:layout="@layout/fragment_liked_recipe" >
+        <action
+            android:id="@+id/action_likedRecipeFragment_to_detailRecipeFragment"
+            app:destination="@id/detailRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.ezeats.splashscreen.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

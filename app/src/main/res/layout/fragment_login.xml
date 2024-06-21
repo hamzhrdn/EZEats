@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvSignIn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/signin_msg1"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSignIn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/signin_msg2"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignIn1" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/email"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignIn2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail">
+
+            <com.example.ezeats.customui.EmailEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/enter_email"
+                android:paddingLeft="14dp"
+                android:inputType="textEmailAddress"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/password"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+            <com.example.ezeats.customui.PasswordEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textPassword"
+                android:fontFamily="@font/poppins"
+                android:hint="@string/enter_password"
+                android:paddingLeft="14dp"
+                android:textSize="12sp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/forgot_password_question"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/yellow"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/poppins"
+            android:text="@string/sign_in"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:circularflow_radiusInDP="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/tvOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="22dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/signin_msg3"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/btnSignInWithGoogle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_login" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnSignInWithGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="40dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOr">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/white_button_background">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/google_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/green"
+                    android:gravity="center|center_horizontal"
+                    android:text="@string/signin_google"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSignInWithGoogle"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tvSignIn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/signin_no_account"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sign_up"
+                android:textColor="@color/yellow"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
