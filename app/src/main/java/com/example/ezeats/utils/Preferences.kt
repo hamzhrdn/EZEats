@@ -16,7 +16,6 @@ object Preferences {
         editor.putString("token", token)
         editor.apply()
     }
-
     fun logout(context: Context){
         val editor = editorPreference(context, "onSignIn")
         editor.remove("token")

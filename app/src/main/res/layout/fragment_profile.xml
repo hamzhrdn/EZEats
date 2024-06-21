@@ -92,7 +92,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvMyRecipes"
                 app:spanCount="2"
-                tools:listitem="@layout/user_recipe_list" />
+                tools:listitem="@layout/long_recipe" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

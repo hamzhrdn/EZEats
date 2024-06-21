@@ -5,37 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.ezeats.R
+import com.example.ezeats.databinding.FragmentHomeBinding
+import com.example.ezeats.databinding.FragmentSearchBinding
+import com.example.ezeats.home.HomeFragmentDirections
+import com.example.ezeats.home.HomeViewModel
+import com.example.ezeats.home.RecipeAdapter
+import com.example.ezeats.home.TrendingAdapter
+import com.example.ezeats.response.SearchItem
+import com.example.ezeats.utils.ViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentSearchBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var searchAdapter: SearchItem
+
+    private val searchViewModel: SearchViewModel by viewModels {
+        ViewModelFactory(requireActivity())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
     }
 
     companion object {

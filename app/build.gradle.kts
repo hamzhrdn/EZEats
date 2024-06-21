@@ -61,8 +61,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
     implementation("androidx.room:room-common:2.6.1")
-
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-testing:2.6.1")
     implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     implementation("androidx.paging:paging-common-android:3.3.0")
     implementation("androidx.paging:paging-runtime-ktx:3.3.0")
@@ -90,6 +96,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.1")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     // Dagger - Hilt
@@ -102,4 +110,10 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     //Image
     implementation("com.squareup.picasso:picasso:2.71828")
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains:annotations:23.0.0")
+    }
 }

@@ -69,5 +69,9 @@
     <string name="num_step">Steps n</string>
     <string name="langkah_memasak">langkah memasak</string>
     <string name="all">All</string>
+    <string name="liked_recipe">Liked Recipe</string>
+    <string name="latest">Latest</string>
+    <string name="most_liked">Most Liked</string>
+    <string name="short_desc">Recipe short desc</string>
 
 </resources>
