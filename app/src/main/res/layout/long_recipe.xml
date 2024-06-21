@@ -49,16 +49,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins"
-            android:text="@string/name_recipe"
+            android:text="@string/short_desc"
+            android:maxLength="40"
             android:textColor="@color/dark_gray"
             android:textSize="12sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toEndOf="@+id/image_recipe"
             card_view:layout_constraintTop_toBottomOf="@+id/name_recipe"
-            card_view:layout_constraintVertical_bias="0.315" />
+            card_view:layout_constraintVertical_bias="0.065" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
