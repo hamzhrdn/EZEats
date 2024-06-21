@@ -3,6 +3,7 @@ package com.example.ezeats.network
 import com.example.ezeats.response.AddRecipeResponse
 import com.example.ezeats.response.DetailRecipeResponse
 import com.example.ezeats.response.HomeResponse
+import com.example.ezeats.response.SearchResponse
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -29,4 +30,10 @@ interface ApiService {
 
     @GET("recipe/{id}")
     suspend fun detailRecipe(@Path("id") id: String): Response<DetailRecipeResponse>
+
+    @GET("search-by-ingredients")
+    suspend fun getSearchRecipeList(
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): SearchResponse
 }

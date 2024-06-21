@@ -10,9 +10,11 @@ import androidx.paging.liveData
 import com.example.ezeats.network.ApiService
 import com.example.ezeats.network.RecipePaging
 import com.example.ezeats.network.TrendingPaging
+import com.example.ezeats.network.UserRecipePaging
 import com.example.ezeats.response.AddRecipeResponse
 import com.example.ezeats.response.CategoryFilterItem
 import com.example.ezeats.response.DetailRecipeResponse
+import com.example.ezeats.response.SearchItem
 import com.example.ezeats.response.TrendingItem
 import com.example.ezeats.utils.Result
 import okhttp3.RequestBody
@@ -55,5 +57,16 @@ class Repository (private val apiService: ApiService){
             Log.e("AddRecipeViewModel", "AddRecipe: ${e.message.toString()}")
             emit(Result.Error(e.message.toString()))
         }
+    }
+
+    fun getSearchRecipe(): LiveData<PagingData<SearchItem>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            pagingSourceFactory = {
+                UserRecipePaging(apiService)
+            }
+        ).liveData
     }
 }
