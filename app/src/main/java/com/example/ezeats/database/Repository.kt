@@ -16,7 +16,6 @@ import com.example.ezeats.response.DetailRecipeResponse
 import com.example.ezeats.response.TrendingItem
 import com.example.ezeats.utils.Result
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 
 class Repository (private val apiService: ApiService){
 //    fun getRecipe(): LiveData<PagingData<RecipeResponseItem>> {
@@ -57,10 +56,10 @@ class Repository (private val apiService: ApiService){
         return if (response.isSuccessful) response.body() else null
     }
 
-    fun addRecipe(file : MultipartBody.Part, content : RequestBody):LiveData<Result<AddRecipeResponse>> = liveData {
+    fun addRecipe(requestBody: MultipartBody):LiveData<Result<AddRecipeResponse>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.addRecipe(file, content)
+            val response = apiService.addRecipe(requestBody)
             emit(Result.Success(response))
         } catch (e: Exception) {
             Log.e("AddRecipeViewModel", "addRecipe: ${e.message.toString()}")

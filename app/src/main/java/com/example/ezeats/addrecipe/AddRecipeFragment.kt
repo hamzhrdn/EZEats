@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.ezeats.R
 import com.example.ezeats.databinding.FragmentAddRecipeBinding
 import com.example.ezeats.utils.ViewModelFactory
@@ -51,8 +52,9 @@ class AddRecipeFragment : Fragment() {
             val title = binding.inputRecipeName.text.toString()
             val ingredients = binding.inputIngredient.text.toString()
             val steps = binding.inputSteps.text.toString()
+            val category = binding.inputCategory.text.toString()
 
-            uploadData(title, ingredients, steps)
+            uploadData(title, ingredients, steps, category)
         }
         Log.e("AddRecipe", "AddRecipeFragment opened")
     }
@@ -105,7 +107,7 @@ class AddRecipeFragment : Fragment() {
             }
         }
 
-    private fun uploadData(title: String, ingredients: String, steps: String){
+    private fun uploadData(title: String, ingredients: String, steps: String, category: String){
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, requireContext())
             Log.d("Image File", "showImage: ${imageFile.path}")
@@ -113,15 +115,40 @@ class AddRecipeFragment : Fragment() {
             val titleBody = title.toRequestBody("text/plain".toMediaType())
             val ingredientsBody = ingredients.toRequestBody("text/plain".toMediaType())
             val stepsBody = steps.toRequestBody("text/plain".toMediaType())
+            val categoryBody = category.toRequestBody("text/plain".toMediaType())
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
 
-            val multipartBody = MultipartBody.Builder()
+            val requestBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("title", null, titleBody)
-                .addFormDataPart("ingredients", null, ingredientsBody)
-                .addFormDataPart("steps", null, stepsBody)
-                .addFormDataPart("photo", imageFile.name, requestImageFile)
+                .addPart(MultipartBody.Part.createFormData("title", null, titleBody))
+                .addPart(MultipartBody.Part.createFormData("ingredients", null, ingredientsBody))
+                .addPart(MultipartBody.Part.createFormData("steps", null, stepsBody))
+                .addPart(MultipartBody.Part.createFormData("category", null, categoryBody))
+                .addPart(MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile))
                 .build()
+
+            addRecipeViewModel.addRecipe(requestBody).observe(viewLifecycleOwner){
+                if (it != null) {
+                    when (it) {
+                        is com.example.ezeats.utils.Result.Success -> {
+                            Toast.makeText(context, it.data.message, Toast.LENGTH_LONG).show()
+//                            showLoading(true)
+                            val action = AddRecipeFragmentDirections.actionAddRecipeFragmentToHomeFragment()
+                            findNavController().navigate(action)
+                        }
+
+                        is com.example.ezeats.utils.Result.Loading -> {
+//                            showLoading(true)
+                        }
+
+                        is com.example.ezeats.utils.Result.Error -> {
+//                            showLoading(true)
+                            Toast.makeText(context, it.error, Toast.LENGTH_LONG).show()
+                            Log.d("Add recipe", requestBody.toString())
+                        }
+                    }
+                }
+            }
         }
     }
 }
