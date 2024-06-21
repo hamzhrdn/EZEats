@@ -44,7 +44,7 @@ interface ApiService {
         @Query("size") size: Int
     ): HomeResponse
 
-    @GET("search-by-ingredients")
+    @POST("search-by-ingredients")
     suspend fun getSearchRecipeList(
         @Query("page") page: Int,
         @Query("size") size: Int
