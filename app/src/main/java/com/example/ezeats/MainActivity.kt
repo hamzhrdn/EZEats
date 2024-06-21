@@ -1,21 +1,33 @@
 package com.example.ezeats
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.animation.OvershootInterpolator
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.ezeats.addrecipe.AddRecipeFragment
 import com.example.ezeats.databinding.ActivityMainBinding
+import com.example.ezeats.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private var binding: ActivityMainBinding? = null
+    private lateinit var auth: FirebaseAuth
     private lateinit var navController: NavController
     private lateinit var bottomNav : BottomNavigationView
+    private lateinit var homeFragment: HomeFragment
+    private lateinit var addRecipeFragment: AddRecipeFragment
     @SuppressLint("CutPasteId")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding!!.root)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         bottomNav = findViewById(R.id.bottomNavigationView)
         bottomNav.setOnItemSelectedListener { item ->

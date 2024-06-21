@@ -16,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ezeats.R
 import com.example.ezeats.databinding.FragmentAddRecipeBinding
+import com.example.ezeats.utils.Result
 import com.example.ezeats.utils.ViewModelFactory
 import com.example.ezeats.utils.getImageUri
 import com.example.ezeats.utils.uriToFile
@@ -124,24 +125,24 @@ class AddRecipeFragment : Fragment() {
                 .addPart(MultipartBody.Part.createFormData("ingredients", null, ingredientsBody))
                 .addPart(MultipartBody.Part.createFormData("steps", null, stepsBody))
                 .addPart(MultipartBody.Part.createFormData("category", null, categoryBody))
-                .addPart(MultipartBody.Part.createFormData("photo", imageFile.name, requestImageFile))
+                .addPart(MultipartBody.Part.createFormData("image", imageFile.name, requestImageFile))
                 .build()
 
             addRecipeViewModel.addRecipe(requestBody).observe(viewLifecycleOwner){
                 if (it != null) {
                     when (it) {
-                        is com.example.ezeats.utils.Result.Success -> {
+                        is Result.Success -> {
                             Toast.makeText(context, it.data.message, Toast.LENGTH_LONG).show()
 //                            showLoading(true)
                             val action = AddRecipeFragmentDirections.actionAddRecipeFragmentToHomeFragment()
                             findNavController().navigate(action)
                         }
 
-                        is com.example.ezeats.utils.Result.Loading -> {
+                        is Result.Loading -> {
 //                            showLoading(true)
                         }
 
-                        is com.example.ezeats.utils.Result.Error -> {
+                        is Result.Error -> {
 //                            showLoading(true)
                             Toast.makeText(context, it.error, Toast.LENGTH_LONG).show()
                             Log.d("Add recipe", requestBody.toString())
