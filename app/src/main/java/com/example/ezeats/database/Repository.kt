@@ -15,12 +15,37 @@ import com.example.ezeats.response.AddRecipeResponse
 import com.example.ezeats.network.UserRecipePaging
 import com.example.ezeats.response.CategoryFilterItem
 import com.example.ezeats.response.DetailRecipeResponse
+import com.example.ezeats.response.LoginResponse
+import com.example.ezeats.response.RegisterResponse
 import com.example.ezeats.response.SearchItem
 import com.example.ezeats.response.TrendingItem
 import com.example.ezeats.utils.Result
 import okhttp3.RequestBody
+import com.example.ezeats.utils.Result
 
 class Repository (private val apiService: ApiService){
+
+    fun postLogin(email: String, password: String): LiveData<Result<LoginResponse>> = liveData{
+        emit(Result.Loading)
+        try {
+            val response = apiService.postLogin(email, password)
+            emit(Result.Success(response))
+        }catch (e: Exception){
+            Log.e("LoginViewModel", "postLogin: ${e.message.toString()}")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun postRegister(name: String, email: String, password: String): LiveData<Result<RegisterResponse>> = liveData{
+        emit(Result.Loading)
+        try {
+            val response = apiService.postRegister(name, email, password)
+            emit(Result.Success(response))
+        }catch (e: Exception){
+            Log.e("RegisterViewModel", "postRegister: ${e.message.toString()}")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 
     fun getRecipeList(): LiveData<PagingData<CategoryFilterItem>> {
         return Pager(
