@@ -8,8 +8,10 @@ import androidx.paging.liveData
 import com.example.ezeats.network.ApiService
 import com.example.ezeats.network.RecipePaging
 import com.example.ezeats.network.TrendingPaging
+import com.example.ezeats.network.UserRecipePaging
 import com.example.ezeats.response.CategoryFilterItem
 import com.example.ezeats.response.DetailRecipeResponse
+import com.example.ezeats.response.SearchItem
 import com.example.ezeats.response.TrendingItem
 
 class Repository (private val apiService: ApiService){
@@ -42,6 +44,17 @@ class Repository (private val apiService: ApiService){
             ),
             pagingSourceFactory = {
                 TrendingPaging(apiService)
+            }
+        ).liveData
+    }
+
+    fun getSearchRecipe(): LiveData<PagingData<SearchItem>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            pagingSourceFactory = {
+                UserRecipePaging(apiService)
             }
         ).liveData
     }
