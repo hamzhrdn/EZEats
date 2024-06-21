@@ -42,11 +42,11 @@
             app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
+                android:id="@+id/ll_sortby"
+                android:layout_width="345dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="start"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.17"
@@ -54,46 +54,42 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tvSortBy"
+                    android:id="@+id/tvMyRecipes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="@string/sort_by"
                     android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.example.ezeats.customui.categoryButton
+                    android:id="@+id/btnLatest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:padding="3dp"
+                    android:text="@string/latest"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/btCategory_container"
+                <com.example.ezeats.customui.categoryButton
+                    android:id="@+id/btnMostLiked"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:scrollbarSize="0dp">
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:padding="3dp"
+                    android:text="@string/most_liked"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <com.example.ezeats.customui.categoryButton
-                        android:id="@+id/btnLatest"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/poppins"
-                        android:padding="3dp"
-                        android:text="@string/latest"
-                        android:textAllCaps="false"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <com.example.ezeats.customui.categoryButton
-                        android:id="@+id/btnMostLiked"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="16dp"
-                        android:fontFamily="@font/poppins"
-                        android:padding="3dp"
-                        android:text="@string/most_liked"
-                        android:textAllCaps="false"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -107,7 +103,7 @@
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/ll_sortby"
                 app:spanCount="1"
                 tools:listitem="@layout/liked_recipe_list" />
 
